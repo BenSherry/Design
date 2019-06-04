@@ -2,6 +2,7 @@
 #include "RealCoder.h"
 #include"Languages.h"
 #include "LangHome.h"
+#include"var_visitor.h"
 void TestvisitorDirectly()
 {
     std::shared_ptr<GoLang> pgolang{new GoLang};
@@ -28,6 +29,7 @@ void TestVistotbyUseLangHome()
     langHome.Accept(pfakecoder);
 }
 int main() {
+    visit_element();
     return 0;
 }
 /* 有两个元素，不同的的访问者访问的时候，会出现不同的效果，我们可以考虑使用访问者模式来实现

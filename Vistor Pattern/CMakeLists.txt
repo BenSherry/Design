@@ -3,4 +3,4 @@ project(Vistor_Pattern)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Vistor_Pattern main.cpp Languages.h)
+add_executable(Vistor_Pattern main.cpp Languages.h var_visitor.h)
