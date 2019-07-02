@@ -30,6 +30,8 @@ void TestVistotbyUseLangHome()
 }
 int main() {
     visit_element();
+    test_coder_c();
+
     return 0;
 }
 /* 有两个元素，不同的的访问者访问的时候，会出现不同的效果，我们可以考虑使用访问者模式来实现
