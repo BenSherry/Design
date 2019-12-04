@@ -10,7 +10,7 @@ int main()
 
     DrinkFactory drinkFactory;
     auto tea = drinkFactory.makeDrink("tea");
-    if (tea != nullptr)
+    if (tea != std::nullopt)
     {
         tea.value()->prePareDrink(100);
     }
