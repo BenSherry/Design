@@ -13,7 +13,7 @@ public:
         return username;
     }
 
-    std::string getOfficeAddress()
+    std::string getOfficeAddress() override
     {
         std::string officeAddress = "0A707";
         return officeAddress;

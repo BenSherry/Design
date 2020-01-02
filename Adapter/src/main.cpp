@@ -4,13 +4,18 @@
 
 #include "UserInfoAdapter.hpp"
 #include "UserInfo.hpp"
+#include "OuterUserInfo.hpp"
 
 int main()
 {
-    UserInfo user;
-    std::shared_ptr<IUserInfo> userInfoPtr = std::make_shared<UserInfo>(user);
+    std::shared_ptr<IUserInfo> userInfoPtr = std::make_shared<UserInfo>();
     std::cout << "Address:" << userInfoPtr->getOfficeAddress() << "\n";
     std::cout << "Name:" << userInfoPtr->getUserName() << "\n";
+
+    OuterUserInfo outerUserInfo;
+    std::shared_ptr<IUserInfo> userInfoAdapterPtr = std::make_shared<UserInfoAdapter>(outerUserInfo);
+    std::cout << "Address:" << userInfoAdapterPtr->getOfficeAddress() << "\n";
+    std::cout << "Name:" << userInfoAdapterPtr->getUserName() << "\n";
 
 }
 

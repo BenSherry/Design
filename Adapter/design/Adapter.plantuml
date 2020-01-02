@@ -1,0 +1,32 @@
+@startuml
+class IUserInfo{
+    + virtual std::string getUserName() = 0;
+    + virtual std::string getOfficeAddress() = 0;
+}
+
+class UserInfo{
+    + std::string getUserName() override;
+    + std::string getOfficeAddress() override;
+}
+
+class OuterUserInfo{
+    - std::map<std::string,std::string> userInfoMap_
+    + OuterUserInfo()
+    + std::map<std::string,std::string> getUserInfo()
+}
+
+class UserInfoAdapter{
+    + UserInfoAdapter(OuterUserInfo outerUserInfo)
+    + std::string getUserName() override;
+    + std::string getOfficeAddress() override;
+    - std::string name_;
+    - std::string address_;
+}
+
+note left of UserInfoAdapter: this is an adapter,\naccording it,we can use \n OuterUserInfo as UserInfo
+
+IUserInfo <|.. UserInfo
+IUserInfo <|.. UserInfoAdapter
+
+UserInfoAdapter ..> OuterUserInfo
+@enduml
