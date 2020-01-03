@@ -1,0 +1,46 @@
+@startuml
+
+class IProduct{
+    + virtual void Created() = 0;
+    + virtual void Selled() = 0;
+}
+
+class Clothes{
+    + void Created() override;
+    + void Selled() override;
+}
+
+class House{
+    + void Created() override;
+    + void Selled() override;
+}
+
+class Company {
+    - std::shared_ptr<IProduct> productPtr_;
+    + Company(std::shared_ptr<IProduct> productPtr);
+    + void MakeMoney();
+}
+
+note right of IProduct: Implementor
+note right of Company: Abstraction
+
+class HouseCompany {
+    + HouseCompany(std::shared_ptr<IProduct> productPtr);
+    + void MakeMoney();
+}
+
+class ClothesCompany {
+    + ClothesCompany(std::shared_ptr<IProduct> productPtr);
+    + void MakeMoney();
+}
+
+IProduct <|.. Clothes
+IProduct <|.. House
+
+Company <|-- HouseCompany
+Company <|-- ClothesCompany
+
+Company -up-> IProduct : bridge
+
+
+@enduml
