@@ -1,0 +1,25 @@
+@startuml
+class IShape{
+     + virtual std::string ShowInfo() = 0;
+    
+}
+
+class Circle{
+    - double radius_;
+    + Circle(double radius);
+    + std::string ShowInfo() override;
+    + void Resize(double factor);
+}
+
+class ColorShape{
+    - std::string color_;
+    - std::shared_ptr<IShape> shapePtr_;
+    + ColorShape(std::string color, std::shared_ptr<IShape> shapePtr);
+    + std::string ShowInfo() override;
+}
+note left of ColorShape: this is an decorator,\n it based on IShape and extend \nIShape's derived
+IShape <|.. Circle
+IShape <|.. ColorShape
+IShape <-- ColorShape
+
+@enduml
