@@ -1,0 +1,44 @@
+@startuml
+class ICountryMachine{
+    + virtual void add(std::shared_ptr<ICountryMachine> countryMachineptr) = 0;
+    + virtual void remove(std::shared_ptr<ICountryMachine> countryMachineptr) = 0;
+    + virtual std::shared_ptr<ICountryMachine> getParent() = 0;
+    + virtual void setParents(std::shared_ptr<ICountryMachine> countryMachineptr) = 0;
+    + virtual std::string getMachineId() = 0;
+    + virtual std::string getMachineName() = 0;
+}
+
+class Branch{
+    - std::string name_;
+    - std::string id_;
+    - std::vector<CountryMachineptr> subMachine_;
+    - CountryMachineptr parentPtr_;
+    - virtual void setParents(std::shared_ptr<ICountryMachine> countryMachineptr);
+    + Branch(std::string name, std::string id)
+    + virtual void add(std::shared_ptr<ICountryMachine> countryMachineptr);
+    + virtual void remove(std::shared_ptr<ICountryMachine> countryMachineptr);
+    + virtual std::shared_ptr<ICountryMachine> getParent();
+    + virtual std::string getMachineId();
+    + virtual std::string getMachineName();
+}
+
+class Leaf{
+    - std::string name_;
+    - std::string id_;
+    - CountryMachineptr parentPtr_;
+    - virtual void setParents(std::shared_ptr<ICountryMachine> countryMachineptr);
+    + Leaf (std::string name, std::string id);
+    + virtual void add(std::shared_ptr<ICountryMachine> countryMachineptr) empty;
+    + virtual void remove(std::shared_ptr<ICountryMachine> countryMachineptr) empty;
+    + virtual std::shared_ptr<ICountryMachine> getParent();
+    + virtual std::string getMachineId();
+    + virtual std::string getMachineName();
+}
+
+ICountryMachine <|.. Branch
+ICountryMachine <|.. Leaf
+
+ICountryMachine *-- Branch
+ICountryMachine <-- Leaf
+
+@enduml
