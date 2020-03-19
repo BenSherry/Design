@@ -1,9 +1,5 @@
-//
-// Created by SHERRY on 2019/5/11.
-//
+#pragma once
 
-#ifndef VISTOR_PATTERN_REALCODER_H
-#define VISTOR_PATTERN_REALCODER_H
 #include"visitor.h"
 #include "Languages.h"
 #include<iostream>
@@ -32,4 +28,4 @@ public:
         std::cout<<"Fake coder will install some  pyhton IDE tools......"<<std::endl;
     }
 };
-#endif //VISTOR_PATTERN_REALCODER_H
+

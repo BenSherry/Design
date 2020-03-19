@@ -1,13 +1,11 @@
-//
-// Created by SHERRY on 2019/5/11.
-//
+#pragma once
 
-#ifndef VISTOR_PATTERN_LANGHOME_H
-#define VISTOR_PATTERN_LANGHOME_H
-#include "RealCoder.h"
-#include"Languages.h"
 #include <list>
-#include<algorithm>
+#include <algorithm>
+
+#include "RealCoder.h"
+#include "Languages.h"
+
 using SharedLangs = std::shared_ptr<ILangElement>;
 class LangHome
 {
@@ -43,4 +41,3 @@ private:
     std::list<SharedLangs> langs_;
 
 };
-#endif //VISTOR_PATTERN_LANGHOME_H

@@ -1,10 +1,4 @@
-//
-// Created by SHERRY on 2019/6/4.
-//
-
-#ifndef VISTOR_PATTERN_VAR_VISITOR_H
-#define VISTOR_PATTERN_VAR_VISITOR_H
-
+#pragma once
 
 #include<variant>
 #include<iostream>
@@ -88,7 +82,4 @@ void test_coder_c()
         std::visit(rc,elem);
         std::visit(fc,elem);
     }
-
 }
-
-#endif //VISTOR_PATTERN_VAR_VISITOR_H
